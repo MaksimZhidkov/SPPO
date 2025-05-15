@@ -49,11 +49,13 @@ public class AdjacencyMatrix implements Visitor{
         for (int i = 1; i < len; i++) {
             Iterator iterator = struct.getIterator("Egede");
             while (iterator.hasNext()){
-                Egede egede = (Egede) iterator.next();
+                Edge edge = (Edge) iterator.next();
                 for (int j = i; j < len; j++) {
                     if
-                    ((egede.getSorse().equalsIgnoreCase(matrix[i][0]))&&(egede.getReceiver().equalsIgnoreCase(matrix[0][j]))||
-                            (egede.getSorse().equalsIgnoreCase(matrix[0][j]))&&(egede.getReceiver().equalsIgnoreCase(matrix[i][0])))
+                    ((edge.getSource().equalsIgnoreCase(matrix[i][0]))&&
+                            (edge.getReceiver().equalsIgnoreCase(matrix[0][j]))||
+                            (edge.getSource().equalsIgnoreCase(matrix[0][j]))&&
+                                    (edge.getReceiver().equalsIgnoreCase(matrix[i][0])))
                     {
                         matrix[i][j] = "1";
                         matrix[j][i] = "1";

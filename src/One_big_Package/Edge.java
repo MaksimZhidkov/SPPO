@@ -1,11 +1,11 @@
 package One_big_Package;
 
-public class Egede {
+public class Edge {
     private String id;
     private String sorse;
     private String receiver;
 
-    Egede (String sourse, String receiver){
+    Edge(String sourse, String receiver){
         this.sorse = sourse;
         this.receiver = receiver;
         id = sourse + receiver;
@@ -15,7 +15,7 @@ public class Egede {
         return id;
     }
 
-    public String getSorse() {
+    public String getSource() {
         return sorse;
     }
 

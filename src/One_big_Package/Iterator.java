@@ -1,6 +1,6 @@
 package One_big_Package;
+//todo: джава итератор использовать
 
-import java.lang.reflect.Type;
 
 public interface Iterator {
     public boolean hasNext();

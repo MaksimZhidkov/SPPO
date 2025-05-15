@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Graf implements Collection, Structure{
     private List<Node> listNode = new ArrayList<>();
-    private List<Egede> listEgede = new ArrayList<>();
+    private List<Edge> listEdge = new ArrayList<>();
 
     //Метод для ручного ввода полей узла и выбора конкретной фабрики.
     public void addNode(){
@@ -42,15 +42,15 @@ public class Graf implements Collection, Structure{
         String sourse = in.next();
         System.out.println("Введите узел приёмник: ");
         String receiver = in.next();
-        Egede egede = new Egede(sourse, receiver);
+        Edge edge = new Edge(sourse, receiver);
 
-        this.listEgede.add(egede);
+        this.listEdge.add(edge);
     }
 
     // Метод для создания связей в графе по умолчанию, с шаблонными связями.
     public void addEgede(String sourse, String receiver){
-        Egede egede = new Egede(sourse, receiver);
-        this.listEgede.add(egede);
+        Edge edge = new Edge(sourse, receiver);
+        this.listEdge.add(edge);
     }
 
     /*public void printAdjacencyMatrix(){
@@ -98,14 +98,14 @@ public class Graf implements Collection, Structure{
 
         @Override
         public boolean hasNext() {
-            if (index < listEgede.size()){ // переписать под список
+            if (index < listEdge.size()){ // переписать под список
                 return true;
             }
             return false;
         }
 
-        public Egede next() {
-            return listEgede.get(index++);
+        public Edge next() {
+            return listEdge.get(index++);
         }
     }
 }

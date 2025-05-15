@@ -1,7 +1,5 @@
 package One_big_Package;
 
-import java.sql.Struct;
-
 public class IdentityMatrix implements Visitor{
     private String[][] matrix;
     private int rows = 1;
@@ -26,7 +24,7 @@ public class IdentityMatrix implements Visitor{
 
         Iterator iteratorEgede = struct.getIterator("Egede");
         while (iteratorEgede.hasNext()) {
-            Egede egede = (Egede) iteratorEgede.next();
+            Edge edge = (Edge) iteratorEgede.next();
             rows++;
         }
 
@@ -48,8 +46,8 @@ public class IdentityMatrix implements Visitor{
         index = 1;
         Iterator iteratorEgede = struct.getIterator("Egede");
         while (iteratorEgede.hasNext()) {
-            Egede egede = (Egede) iteratorEgede.next();
-            matrix[index][0] = egede.getId();
+            Edge edge = (Edge) iteratorEgede.next();
+            matrix[index][0] = edge.getId();
             index++;
         }
 
@@ -65,9 +63,9 @@ public class IdentityMatrix implements Visitor{
         Iterator iteratorEgede = struct.getIterator("Egede");
 
         while (iteratorEgede.hasNext()){
-            Egede egede = (Egede) iteratorEgede.next();
+            Edge edge = (Edge) iteratorEgede.next();
             for (int i = 1; i < colums; i++) {
-                if ((egede.getSorse().equalsIgnoreCase(matrix[0][i]))||(egede.getReceiver().equalsIgnoreCase(matrix[0][i]))){
+                if ((edge.getSource().equalsIgnoreCase(matrix[0][i]))||(edge.getReceiver().equalsIgnoreCase(matrix[0][i]))){
                      matrix[index][i] = "1";
                 }
             }
