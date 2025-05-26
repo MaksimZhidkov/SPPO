@@ -1,25 +1,28 @@
 package One_big_Package;
 
+// Класс связей.
+
 public class Edge {
-    private String id;
-    private String sorse;
-    private String receiver;
+    private Node source;
+    private Node target;
+    private String relation;
 
-    Edge(String sourse, String receiver){
-        this.sorse = sourse;
-        this.receiver = receiver;
-        id = sourse + receiver;
+    public Edge(Node source, Node target, String relation) {
+        this.source = source;
+        this.target = target;
+        this.relation = relation;
     }
 
-    public String getId() {
-        return id;
+    public Node getSource() {
+        return source;
     }
-
-    public String getSource() {
-        return sorse;
+    public Node getTarget() {
+        return target;
     }
-
-    public String getReceiver() {
-        return receiver;
+    public String getRelation() {
+        return relation;
+    }
+    public String getName(){
+        return source.getName()+target.getName();
     }
 }

@@ -1,5 +1,9 @@
 package One_big_Package;
 
-public interface NodeFactory {
-    public Node createNode(String id, String description);
+// фабрика, тк узел всего один, она не интересная.
+
+public class NodeFactory {
+    public Node createConcreteNode(String name, String description) {
+        return new Node(name, description);
+    }
 }
