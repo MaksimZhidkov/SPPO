@@ -25,4 +25,6 @@ public class MenuItem implements IMenuComponent {
     public void display(int depth) {
         System.out.println("-".repeat(depth) + name);
     }
+
+    public void execute(Graph graph){}
 }

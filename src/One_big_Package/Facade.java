@@ -8,6 +8,7 @@ public class Facade {
     private static Facade facade;
     private Graph graph;
     private Menu menu;
+    private MenuItem[] matrix;
 
     // Создаю элемент фасада (одиночку)
     private Facade(){
@@ -23,18 +24,26 @@ public class Facade {
 
     // Создаю меню
     public void createMenu(){
+        matrix = new MenuItem[6];
         // Создаем блюда для основного меню
-        MenuItem createAutoGraf = new MenuItem("Вывести граф по умолчанию [ 0 ]");
-        MenuItem exit = new MenuItem("Выйти (Завершить работу программы) [ -1 ]");
+        MenuItem createAutoGraf = new CreateDefaultGraph("Вывести граф по умолчанию [ 0 ]");
+        matrix[0]=createAutoGraf;
+        // todo придумать выход из цикла.
+        MenuItem exit = new Exit("Выйти (Завершить работу программы) [ 5 ]");
+        matrix[5]=exit;
 
         // Создаем подменю
         Menu persenGraf = new Menu("Создать свой граф");
 
         // Создаем блюда для подменю
-        MenuItem a = new MenuItem("Ввести узел [ 1 ]");
-        MenuItem b = new MenuItem("Ввести связь [ 2 ]");
-        MenuItem c = new MenuItem("Распечатать матрицу смежности [ 3 ]");
-        MenuItem d = new MenuItem("Вывести матрицу инцидентности [ 4 ]");
+        MenuItem a = new CreateNode("Ввести узел [ 1 ]");
+        matrix[1]=a;
+        MenuItem b = new CreateEdge("Ввести связь [ 2 ]");
+        matrix[2]=b;
+        MenuItem c = new CreateAdjacencyMatrix("Распечатать матрицу смежности [ 3 ]");
+        matrix[3]=c;
+        MenuItem d = new CreateIdentetyMatrix("Вывести матрицу инцидентности [ 4 ]");
+        matrix[4]=d;
 
         // Добавляем блюда в подменю напитков
         persenGraf.add(a);
@@ -51,15 +60,15 @@ public class Facade {
     // Метод для работы с графом/ с меню.
     public void createGaph(){
         Scanner scanner = new Scanner(System.in);
-        int counter = 1;
-        while (counter == 1){
+        while (true){
+            MenuItem menuItem;
             // Отображаем содержимое основного меню
             menu.display(0);
             System.out.println();
-            String key = scanner.nextLine();
+            int key = Integer.parseInt(scanner.nextLine());
 
-            counter = menu.functionMenu(graph, key);
+            menuItem = matrix[key];
+            menuItem.execute(graph);
         }
     }
-
 }

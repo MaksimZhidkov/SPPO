@@ -31,7 +31,6 @@ public class IdentityMatrix implements GraphVisitor{
             counter++;
         }
 
-
 // Выводим таблицу
         nodeIterator = graph.nodeIterator();
         System.out.println("Матрица инцидентности:");
