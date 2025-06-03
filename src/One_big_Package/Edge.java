@@ -3,26 +3,26 @@ package One_big_Package;
 // Класс связей.
 
 public class Edge {
-    private Node source;
-    private Node target;
+    private String source;
+    private String target;
     private String relation;
 
-    public Edge(Node source, Node target, String relation) {
+    public Edge(String source, String target, String relation) {
         this.source = source;
         this.target = target;
         this.relation = relation;
     }
 
-    public Node getSource() {
+    public String getSource() {
         return source;
     }
-    public Node getTarget() {
+    public String getTarget() {
         return target;
     }
     public String getRelation() {
         return relation;
     }
     public String getName(){
-        return source.getName()+target.getName();
+        return source+target;
     }
 }
